@@ -1,0 +1,111 @@
+easy_admin:
+  list:
+    actions: ['show']
+  site_name: '<a href="https://lefebvredavid.fr/" target="_blank">Lefebvre David</a>'
+  design:
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+      - '@VichUploader/Form/fields.html.twig'
+    brand_color: '#1ABC9C'
+    menu:
+      - label: 'CV'
+        icon: 'file-alt'
+        children:
+          - {entity: 'Moi', icon: 'user'}
+          - {entity: 'Projet', icon: 'project-diagram'}
+          - {entity: 'Competence', icon: 'code'}
+          - {entity: 'Experience', icon: 'code'}
+          - {entity: 'Realisation', icon: 'check-double'}
+      - label: 'Blog'
+        icon: 'book-dead'
+        children:
+          - {entity: 'Article', icon: 'newspaper'}
+          - {entity: 'Categorie', icon: 'inbox'}
+      - label: 'Membre'
+        icon: 'users'
+        children:
+          - {entity: 'User', icon: 'user'}
+  entities:
+    Moi:
+      class: App\Entity\Moi
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'texte'}
+      form:
+        fields:
+          - { property: 'texte', type: 'text_editor'}
+    Projet:
+      class: App\Entity\Projet
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'texte'}
+          - { property: 'lien' }
+    Realisation:
+      class: App\Entity\Realisation
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'texte'}
+          - { property: 'lien' }
+    Competence:
+      class: App\Entity\Competence
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'language'}
+          - { property: 'fontlogo'}
+          - { property: 'pourcentage'}
+    Experience:
+      class: App\Entity\Experience
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'debut'}
+          - { property: 'fin'}
+          - { property: 'societe'}
+          - { property: 'texte'}
+    Article:
+      class: App\Entity\Article
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'titre'}
+          - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+          - { property: 'slug'}
+          - { property: 'description'}
+          - { property: 'categorie'}
+          - { property: 'article'}
+          - { property: 'date'}
+          - { property: 'lien'}
+      form:
+        fields:
+          - { property: 'titre'}
+          - { property: 'imageFile', type: 'vich_image' }
+          - { property: 'slug'}
+          - { property: 'description', type: 'text_editor'}
+          - { property: 'article', type: 'text_editor'}
+          - { property: 'categorie'}
+          - { property: 'date'}
+          - { property: 'lien'}
+    Categorie:
+      class: App\Entity\Categorie
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'nom'}
+          - { property: 'slug'}
+          - { property: 'description'}
+      form:
+        fields:
+          - { property: 'nom'}
+          - { property: 'slug'}
+          - { property: 'description', type: 'text_editor'}
+    User:
+      class: App\Entity\User
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'username'}
+          - { property: 'roles'}

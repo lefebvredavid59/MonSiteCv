@@ -1,0 +1,71 @@
+.fa-html5:hover
+{
+    color: #ff651f;
+}
+
+.fa-css3-alt:hover
+{
+    color: #1c88c7;
+}
+
+.fa-bootstrap:hover
+{
+    color: #563d7c;
+}
+
+.fa-php:hover
+{
+    color: #777bb3;
+}
+
+.fa-database:hover
+{
+    color: #e48e00;
+}
+
+.fa-angular:hover
+{
+    color: #dd0031;
+}
+
+.fa-github-square:hover
+{
+    color: #14191e;
+}
+
+.fa-wordpress:hover
+{
+    color: #1c6af2;
+}
+
+.fa-symfony:hover
+{
+    color: #3C4947;
+}
+
+.fa-laravel:hover
+{
+    color: #ff291a;
+}
+
+.fa-react:hover
+{
+    color: #61dbfb;
+}
+
+.fa-js-square:hover
+{
+    color: #ffd83a;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.article
+{
+    max-height: 300px;
+    max-width: 300px;
+}
+

@@ -1,0 +1,65 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Blog de David Lefebvre {% endblock %}
+
+{% block gauche %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12 col-lg-2 mt-3 text-center">
+            <div class="card mb-3" style="width: 18rem;">
+                <div class="card-header">Catégorie</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-dark"><a href="{{ path('articles') }}"
+                                                                            class="text-decoration-none">Tout les
+                                articles</a>
+                        </li>
+                        {% for categorie in categories %}
+                            <li class="list-group-item list-group-item-dark"><a
+                                        href="{{ path('categorie',{ 'slug':categorie.slug }) }}"
+                                        class="text-decoration-none">{{ categorie.nom }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block body %}
+        <div class="col-sm-12 col-lg-9 mx-auto">
+            <div class="card mt-3">
+                <div class="card-header text-uppercase text-center">
+                    Dernières Articles
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        {% for date in dates %}
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ date.titre }}</h4>
+                                        {# <p class="card-text">Catégorie : {{ date.categorie }}</p>#}
+                                        {% autoescape %}
+                                        <p class="card-text">{{ date.description|raw }}</p>
+                                        {% endautoescape %}
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="{{ path('article',{ 'slug':date.slug }) }}"
+                                                   class="btn btn-secondary btn-block">Lire</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-secondary text-center">Publier le
+                                        : {{ date.date |date("d/m/Y") }}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

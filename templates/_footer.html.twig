@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid mt-4">
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Contact</h1>
+        <a href="https://www.linkedin.com/in/david-lefebvre/" class="text-decoration-none" target="_blank" ><i class="fab fa-linkedin fa-3x"></i></a>
+        <a href="https://github.com/lefebvredavid59" class="text-decoration-none" target="_blank" ><i class="fab fa-github-square fa-3x"></i></a>
+        <a href="https://goo.gl/maps/VpE9ZzDqFDKVudGu6" class="text-decoration-none" target="_blank" ><i class="fas fa-map-marker-alt fa-3x"></i></a>
+        <a href="https://twitter.com/lefebvredavid59" class="text-decoration-none" target="_blank" ><i class="fab fa-twitter-square fa-3x"></i></a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldecontact">
+            Email
+        </button>
+        <p class="lead"> ©{{ "now"|date("Y") }} Lefebvre David</p>
+    </div>
+</div>
+
+<div class="modal fade" id="modaldecontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Contactez moi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ form_start(contact)}}
+                {{ form_row(contact.email) }}
+                {{ form_row(contact.raison) }}
+                {{ form_row(contact.message) }}
+                <button class="btn btn-success btn-block">Envoyer</button>
+                {{ form_end(contact) }}
+            </div>
+        </div>
+    </div>
+</div>

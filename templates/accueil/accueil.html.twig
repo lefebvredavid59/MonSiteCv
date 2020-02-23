@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lefebvre David{% endblock %}
+
+{% block body %}
+    <div class="jumbotron jumbotron-fluid p-1">
+        <div class="container text-center">
+            <img class="mx-auto" src="{{ asset('image/logo.png') }}" >
+{#            <h1 class="display-4 text-center ">Lefebvre David</h1>#}
+{#            <h1 class="lead text-center">Développeur Web et Web mobile en formation</h1>#}
+        </div>
+    </div>
+
+    <div class="container-fuild mt-4">
+        <div class="row">
+
+            <div class="col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Moi
+                    </div>
+                    {% for moi in mois %}
+                        <div class="card-body">
+                            {% autoescape %}
+                            <p> {{ moi.texte|raw }}</p>
+                            {% endautoescape %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Projets en cours
+                    </div>
+                    <div class="card-body">
+                        {% for projet in projets %}
+                            <h5><span class="badge badge-primary">n°{{ projet.id }}</span> {{ projet.texte }}
+                            {% if projet.lien %}
+                                <a href="{{ projet.lien }}" target="_blank" class="badge badge-primary">Lien</a> </h5>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Compétences
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for competence in competences %}
+                                <div class="col-6">
+                                    <i class="{{ competence.fontlogo }} fa-3x"></i>
+                                    <div class="progress shadow">
+                                        <div class="progress-bar" role="progressbar"
+                                             style="width: {{ competence.pourcentage }}%;"
+                                             aria-valuenow="{{ competence.pourcentage }}" aria-valuemin="0"
+                                             aria-valuemax="100">{{ competence.pourcentage }}%
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fuild mt-4">
+        <div class="row">
+
+            <div class="col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Experience
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped text-center">
+                            <thead>
+                            <tr>
+                                <th scope="col">Société</th>
+                                <th scope="col">Debut</th>
+                                <th scope="col">Fin</th>
+                                <th scope="col">Travail</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for experience in experiences %}
+                                <tr>
+                                    <th scope="row">{{ experience.societe }}</th>
+                                    <td>{{ experience.debut |date("d/m/Y") }}</td>
+                                    {% if experience.fin %}
+                                        <td>{{ experience.fin |date("d/m/Y") }}</td>
+                                    {% endif %}
+                                    <td><strong>En cour</strong></td>
+                                    <td>{{ experience.texte }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Réalisation
+                    </div>
+                    <div class="card-body">
+                        {% for realisation in realisations %}
+                            <h5><span class="badge badge-primary">n°{{ realisation.id }}</span> {{ realisation.texte }}
+                            {% if realisation.lien %}
+                                <a href="{{ realisation.lien }}" target="_blank"
+                                   class="badge badge-primary">Lien</a></h5>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
