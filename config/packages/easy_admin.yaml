@@ -66,6 +66,12 @@ easy_admin:
           - { property: 'fin'}
           - { property: 'societe'}
           - { property: 'texte'}
+      form:
+        fields:
+          - { property: 'debut'}
+          - { property: 'fin'}
+          - { property: 'societe'}
+          - { property: 'texte'}
     Article:
       class: App\Entity\Article
       list:

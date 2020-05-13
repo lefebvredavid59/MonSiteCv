@@ -1,27 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<section2 class="vuemoon">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <a class="navbar-brand" href="{{ path("accueil") }}">DL</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <i class="fas fa-hamburger"></i>
+      <i class="fas fa-hamburger"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="{{ path("accueil") }}">CV</a>
+        <a class="nav-item nav-link" href="{{ path("blog") }}">Blog</a>
+      </div>
+      <div class="mr-auto">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{{ path("accueil") }}">CV</a>
-            <a class="nav-item nav-link" href="{{ path("blog") }}">Blog</a>
-        </div>
-        <div class="mr-auto">
-            <div class="navbar-nav">
-                {% if app.user %}
-                    <span class="nav-link">{{ app.user.username }}</span>
-                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a class="nav-item nav-link" href="{{ path("easyadmin") }}">Admin</a>
-                {% endif %}
-                {% else %}
-                    <a class="nav-item nav-link" href="{{ path("app_inscription") }}">Inscription</a>
-                    <a class="nav-item nav-link" href="{{ path("app_login") }}">Login</a>
+          {% if app.user %}
+            <span class="nav-link">{{ app.user.username }}</span>
+            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            {% if is_granted('ROLE_ADMIN') %}
+              <a class="nav-item nav-link" href="{{ path("easyadmin") }}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-item nav-link" href="{{ path("app_inscription") }}">Inscription</a>
+            <a class="nav-item nav-link" href="{{ path("app_login") }}">Login</a>
 
-                {% endif %}
-            </div>
+          {% endif %}
         </div>
+      </div>
+      <div class="navbar-nav">
+        <div class="sun"><i class="far fa-sun mr-3"></i></div>
+        <div class="moon"><i class="far fa-moon mr-3"></i></div>
+      </div>
     </div>
-</nav>
+  </nav>
+</section2>
+
+<section class="vuesun">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ path("accueil") }}">DL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <i class="fas fa-hamburger"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="{{ path("accueil") }}">CV</a>
+        <a class="nav-item nav-link" href="{{ path("blog") }}">Blog</a>
+      </div>
+      <div class="mr-auto">
+        <div class="navbar-nav">
+          {% if app.user %}
+            <span class="nav-link">{{ app.user.username }}</span>
+            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            {% if is_granted('ROLE_ADMIN') %}
+              <a class="nav-item nav-link" href="{{ path("easyadmin") }}">Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="nav-item nav-link" href="{{ path("app_inscription") }}">Inscription</a>
+            <a class="nav-item nav-link" href="{{ path("app_login") }}">Login</a>
+
+          {% endif %}
+        </div>
+      </div>
+      <div class="navbar-nav">
+        <div class="sun"><i class="far fa-sun mr-3"></i></div>
+        <div class="moon"><i class="far fa-moon mr-3"></i></div>
+      </div>
+    </div>
+  </nav>
+</section>

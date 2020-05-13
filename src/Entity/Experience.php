@@ -31,6 +31,11 @@ class Experience
      */
     private $fin;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $societe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Experience
     public function setFin(?\DateTimeInterface $fin): self
     {
         $this->fin = $fin;
+
+        return $this;
+    }
+
+    public function getSociete(): ?string
+    {
+        return $this->societe;
+    }
+
+    public function setSociete(string $societe): self
+    {
+        $this->societe = $societe;
 
         return $this;
     }

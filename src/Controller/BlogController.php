@@ -74,6 +74,8 @@ class BlogController extends AbstractController
         $categories = $categorieRepository->findAll();
         $articles = $articleRepository->findAll();
 
+        // formulaire de contact
+
         $transport = new MailgunSmtpTransport('', '');
         $mailer = new Mailer($transport);
 

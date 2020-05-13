@@ -1,35 +1,65 @@
-<div class="jumbotron jumbotron-fluid mt-4">
+<section2 class="vuemoon bg-secondary pt-3">
+  <div class="jumbotron jumbotron-fluid bg-dark mb-0">
     <div class="container-fluid text-center">
-        <h1 class="display-4">Contact</h1>
+      <h1 class="display-4">Contact</h1>
 
-        <a href="https://www.linkedin.com/in/david-lefebvre/" target="_blank" ><i class="fab fa-linkedin fa-3x mr-2"></i></a>
-        <a href="https://github.com/lefebvredavid59" class="text-decoration-none" target="_blank" ><i class="fab fa-github-square fa-3x mr-2"></i></a>
-        <a href="https://twitter.com/lefebvredavid59" class="text-decoration-none" target="_blank" ><i class="fab fa-twitter-square fa-3x mr-2"></i></a>
+      <a href="https://www.linkedin.com/in/david-lefebvre/" target="_blank"><i
+                class="fab fa-linkedin fa-3x mr-2"></i></a>
+      <a href="https://github.com/lefebvredavid59" class="text-decoration-none" target="_blank"><i
+                class="fab fa-github-square fa-3x mr-2"></i></a>
+      <a href="https://twitter.com/lefebvredavid59" class="text-decoration-none" target="_blank"><i
+                class="fab fa-twitter-square fa-3x mr-2"></i></a>
 
-        <a href="https://goo.gl/maps/VpE9ZzDqFDKVudGu6" class="text-decoration-none" target="_blank" ><i class="fas fa-map-marker-alt fa-3x mr-2"></i></a>
-        <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#modaldecontact"><i class="fas fa-envelope-square fa-3x"></i></a>
+      <a href="https://goo.gl/maps/VpE9ZzDqFDKVudGu6" class="text-decoration-none" target="_blank"><i
+                class="fas fa-map-marker-alt fa-3x mr-2"></i></a>
+      <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#modaldecontact"><i
+                class="fas fa-envelope-square fa-3x"></i></a>
 
-        <p class="lead"> ©{{ "now"|date("Y") }} Lefebvre David</p>
+      <p class="lead"> © 2020 - {{ "now"|date("Y") }} Lefebvre David</p>
     </div>
-</div>
+  </div>
+</section2>
 
-<div class="modal fade" id="modaldecontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Contactez moi</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{ form_start(contact)}}
-                {{ form_row(contact.email) }}
-                {{ form_row(contact.raison) }}
-                {{ form_row(contact.message) }}
-                <button class="btn btn-success btn-block">Envoyer</button>
-                {{ form_end(contact) }}
-            </div>
-        </div>
+<section class="vuesun pt-3">
+  <div class="jumbotron jumbotron-fluid mb-0">
+    <div class="container-fluid text-center">
+      <h1 class="display-4">Contact</h1>
+
+      <a href="https://www.linkedin.com/in/david-lefebvre/" target="_blank"><i
+                class="fab fa-linkedin fa-3x mr-2"></i></a>
+      <a href="https://github.com/lefebvredavid59" class="text-decoration-none" target="_blank"><i
+                class="fab fa-github-square fa-3x mr-2"></i></a>
+      <a href="https://twitter.com/lefebvredavid59" class="text-decoration-none" target="_blank"><i
+                class="fab fa-twitter-square fa-3x mr-2"></i></a>
+
+      <a href="https://goo.gl/maps/VpE9ZzDqFDKVudGu6" class="text-decoration-none" target="_blank"><i
+                class="fas fa-map-marker-alt fa-3x mr-2"></i></a>
+      <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#modaldecontact"><i
+                class="fas fa-envelope-square fa-3x"></i></a>
+
+      <p class="lead"> © 2020 - {{ "now"|date("Y") }} Lefebvre David</p>
     </div>
+  </div>
+</section>
+
+<div class="modal fade" id="modaldecontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Contactez moi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ form_start(contact) }}
+        {{ form_row(contact.email) }}
+        {{ form_row(contact.raison) }}
+        {{ form_row(contact.message) }}
+        <button class="btn btn-success btn-block">Envoyer</button>
+        {{ form_end(contact) }}
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\CompetenceRepository;
-use App\Repository\ContactRepository;
 use App\Repository\ExperienceRepository;
 use App\Repository\MoiRepository;
 use App\Repository\ProjetRepository;

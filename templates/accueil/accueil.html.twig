@@ -3,131 +3,263 @@
 {% block title %}Lefebvre David{% endblock %}
 
 {% block body %}
-    <div class="jumbotron jumbotron-fluid p-0">
-        <div class="container text-center p-0">
-            <img class="mx-auto pb-1" src="{{ asset('image/logo.png') }}" data-toggle="modal" data-target="#modaldecontact" >
-        </div>
+
+  <section2 class="vuemoon bg-secondary pb-3">
+    <div class="jumbotron jumbotron-fluid p-0 bg-dark">
+      <div class="container text-center p-0">
+        <img class="mx-auto pb-1" src="{{ asset('image/logo.png') }}" data-toggle="modal" data-target="#modaldecontact">
+      </div>
     </div>
 
     <div class="container-fuild mt-4">
-        <div class="row m-0">
+      <div class="row m-0">
 
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Moi
-                    </div>
-                    {% for moi in mois %}
-                        <div class="card-body">
-                            {% autoescape %}
-                            <p> {{ moi.texte|raw }}</p>
-                            {% endautoescape %}
-                        </div>
-                    {% endfor %}
-                </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="card text-white bg-dark">
+            <div class="card-header text-center">
+              Moi
             </div>
-
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Projets en cours
-                    </div>
-                    <div class="card-body">
-                        {% for projet in projets %}
-                            <h5><span class="badge badge-primary">n°{{ projet.id }}</span> {{ projet.texte }}
-                            {% if projet.lien %}
-                                <a href="{{ projet.lien }}" target="_blank" class="badge badge-primary">Lien</a> </h5>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
+            {% for moi in mois %}
+              <div class="card-body">
+                {% autoescape %}
+                  <p>{{ moi.texte|raw }}</p>
+                {% endautoescape %}
+              </div>
+            {% endfor %}
+          </div>
         </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card text-white bg-dark">
+            <div class="card-header text-center">
+              Projets en cours
+            </div>
+            <div class="card-body">
+              {% for projet in projets %}
+                <h5><span class="badge badge-primary">n°{{ projet.id }}</span> {{ projet.texte }}
+                {% if projet.lien %}
+                  <a href="{{ projet.lien }}" target="_blank" class="badge badge-primary">Lien</a> </h5>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="container-fluid mt-4 p-0">
-        <div class="row m-0">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Compétences
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            {% for competence in competences %}
-                                <div class="col-6">
-                                    <i class="{{ competence.fontlogo }} fa-3x"></i>
-                                    <div class="progress shadow">
-                                        <div class="progress-bar" role="progressbar"
-                                             style="width: {{ competence.pourcentage }}%;"
-                                             aria-valuenow="{{ competence.pourcentage }}" aria-valuemin="0"
-                                             aria-valuemax="100">{{ competence.pourcentage }}%
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
+      <div class="row m-0">
+        <div class="col-12">
+          <div class="card text-white bg-dark">
+            <div class="card-header text-center">
+              Compétences
             </div>
+            <div class="card-body">
+              <div class="row">
+                {% for competence in competences %}
+                  <div class="col-6">
+                    <i class="{{ competence.fontlogo }} fa-3x"></i>
+                    <div class="progress shadow">
+                      <div class="progress-bar" role="progressbar"
+                           style="width: {{ competence.pourcentage }}%;"
+                           aria-valuenow="{{ competence.pourcentage }}" aria-valuemin="0"
+                           aria-valuemax="100">{{ competence.pourcentage }}%
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="container-fuild mt-4">
-        <div class="row m-0">
+      <div class="row m-0">
 
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Experience
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-striped text-center">
-                            <thead>
-                            <tr>
-                                <th scope="col">Société</th>
-                                <th scope="col">Debut</th>
-                                <th scope="col">Fin</th>
-                                <th scope="col">Travail</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for experience in experiences %}
-                                <tr>
-                                    <th scope="row">{{ experience.societe }}</th>
-                                    <td>{{ experience.debut |date("d/m/Y") }}</td>
-                                    {% if experience.fin %}
-                                        <td>{{ experience.fin |date("d/m/Y") }}</td>
-                                    {% endif %}
-                                    <td><strong>En cour</strong></td>
-                                    <td>{{ experience.texte }}</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="card text-white bg-dark">
+            <div class="card-header text-center">
+              Experience
+            </div>
+            <div class="card-body">
+              <table class="table table-striped text-center table-dark">
+                <thead>
+                <tr>
+                  <th scope="col">Société</th>
+                  <th scope="col">Debut</th>
+                  <th scope="col">Fin</th>
+                  <th scope="col">Travail</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for experience in experiences %}
+                  <tr>
+                    <th scope="row">{{ experience.societe }}</th>
+                    <td>{{ experience.debut |date("d/m/Y") }}</td>
+                    {% if experience.fin %}
+                      <td>{{ experience.fin |date("d/m/Y") }}</td>
+                    {% endif %}
+                    <td>{{ experience.texte }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
             </div>
 
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        Réalisation
-                    </div>
-                    <div class="card-body">
-                        {% for realisation in realisations %}
-                            <h5><span class="badge badge-primary">n°{{ realisation.id }}</span> {{ realisation.texte }}
-                            {% if realisation.lien %}
-                                <a href="{{ realisation.lien }}" target="_blank"
-                                   class="badge badge-primary">Lien</a></h5>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card text-white bg-dark">
+            <div class="card-header text-center">
+              Réalisation
+            </div>
+            <div class="card-body text-white">
+              {% for realisation in realisations %}
+                <h5><span class="badge badge-primary">n°{{ realisation.id }}</span> {{ realisation.texte }}
+                {% if realisation.lien %}
+                  <a href="{{ realisation.lien }}" target="_blank"
+                     class="badge badge-primary">Lien</a></h5>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section2>
+
+  <section class="vuesun pb-3">
+    <div class="jumbotron jumbotron-fluid p-0">
+      <div class="container text-center p-0">
+        <img class="mx-auto pb-1" src="{{ asset('image/logo.png') }}" data-toggle="modal" data-target="#modaldecontact">
+      </div>
+    </div>
+
+    <div class="container-fuild mt-4">
+      <div class="row m-0">
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card">
+            <div class="card-header text-center">
+              Moi
+            </div>
+            {% for moi in mois %}
+              <div class="card-body">
+                {% autoescape %}
+                  <p> {{ moi.texte|raw }}</p>
+                {% endautoescape %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card">
+            <div class="card-header text-center">
+              Projets en cours
+            </div>
+            <div class="card-body">
+              {% for projet in projets %}
+                <h5><span class="badge badge-primary">n°{{ projet.id }}</span> {{ projet.texte }}
+                {% if projet.lien %}
+                  <a href="{{ projet.lien }}" target="_blank" class="badge badge-primary">Lien</a> </h5>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid mt-4 p-0">
+      <div class="row m-0">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header text-center">
+              Compétences
+            </div>
+            <div class="card-body">
+              <div class="row">
+                {% for competence in competences %}
+                  <div class="col-6">
+                    <i class="{{ competence.fontlogo }} fa-3x"></i>
+                    <div class="progress shadow">
+                      <div class="progress-bar" role="progressbar"
+                           style="width: {{ competence.pourcentage }}%;"
+                           aria-valuenow="{{ competence.pourcentage }}" aria-valuemin="0"
+                           aria-valuemax="100">{{ competence.pourcentage }}%
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fuild mt-4">
+      <div class="row m-0">
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card">
+            <div class="card-header text-center">
+              Experience
+            </div>
+            <div class="card-body">
+              <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                  <th scope="col">Société</th>
+                  <th scope="col">Debut</th>
+                  <th scope="col">Fin</th>
+                  <th scope="col">Travail</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for experience in experiences %}
+                  <tr>
+                    <th scope="row">{{ experience.societe }}</th>
+                    <td>{{ experience.debut |date("d/m/Y") }}</td>
+                    {% if experience.fin %}
+                      <td>{{ experience.fin |date("d/m/Y") }}</td>
+                    {% endif %}
+                    <td><strong>En cour</strong></td>
+                    <td>{{ experience.texte }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+          <div class="card">
+            <div class="card-header text-center">
+              Réalisation
+            </div>
+            <div class="card-body">
+              {% for realisation in realisations %}
+                <h5><span class="badge badge-primary">n°{{ realisation.id }}</span> {{ realisation.texte }}
+                {% if realisation.lien %}
+                  <a href="{{ realisation.lien }}" target="_blank"
+                     class="badge badge-primary">Lien</a></h5>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 {% endblock %}
